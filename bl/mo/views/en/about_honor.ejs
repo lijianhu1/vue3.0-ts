@@ -1,0 +1,71 @@
+<% include ./header.ejs %>
+<link rel="stylesheet" href="<%- serve.staticPath %>/css/about_en.css">
+<section class="honor-big-img">
+  <h1 class="title">Honor</h1>
+  <span class="bl-text-sign"></span>
+  <div class="desc">
+    Founded in 2004, headquatered in Guangzhou, China, & based on an area of 50,000㎡, Guangdong Bona Robot Corporation Limited is a national high-tech enterprise with integrited R&D, manufacture & sales.
+  </div>
+</section>
+
+<div class="honor">
+  <div class="honor-con">
+    <strong class="year">2018</strong>
+    <ul class="honor-list">
+
+    </ul>
+  </div>
+  <div class="honor-img">
+    <img src="<%- serve.staticPath %>/img/about-2.png" alt="">
+  </div>
+  <ul class="honor-year">
+    <li class="active">2018</li>
+    <li>2017</li>
+    <li>2016</li>
+  </ul>
+</div>
+
+<script>
+  var honor = {
+    "2016": [{
+      "text": "<p>Bona obtained the National High-Tech Enterprise Qualification.</p><p>Bona obtained ISO9001 International Quality System Certification Bona obtained Chinese Intellectual Property</p>"
+    }],
+    "2017": [{
+      "text": "Bona obtained Chinese Intellectual Property Management System Certification"
+    }],
+    "2018": [{
+      "text": "Window robot cleaner W902 was selected as “The Model of the Design in Modern Chinese Design Exhibition"
+    },
+      {
+        "text": "Bona robot vacuum cleaner were selected and displayed in the largest Red Dot Museum of the world"
+      }, {
+        "text": "Bona robot vacuum cleaner 580s obtained Gold Award for Contemporary Good Gesign （referred to as CGD）"
+      }
+    ]
+  };
+  $(function () {
+    activeYear();
+    function activeYear() {
+      var year = $(".honor-year").find(".active").text();
+      $(".honor-con .year").text(year);
+      var honorData = honor[year];
+      var honorHtml = ``;
+      honorData.forEach(function (item,i) {
+        honorHtml += `<li class="${i===0?'bl-color-_333':''}">${item.text}</li>`
+      });
+    $(".honor-list").html(honorHtml);
+    $(".honor-img").html(`<img src="<%- serve.staticPath %>/img/honor/${year}_0.jpg" alt="">`)
+    }
+    $(".honor-year").on("click","li",function () {
+      $(this).addClass('active').siblings().removeClass('active');
+      activeYear();
+    });
+    $(".honor-list").on("click","li",function () {
+      var index = $(this).index();
+      var year = $(".honor-year").find(".active").text();
+      $(this).addClass("bl-color-_333").siblings().removeClass('bl-color-_333');
+      $(".honor-img").html(`<img src="<%- serve.staticPath %>/img/honor/${year}_${index}.jpg" alt="">`)
+    })
+  })
+</script>
+<% include ./footer.ejs %>

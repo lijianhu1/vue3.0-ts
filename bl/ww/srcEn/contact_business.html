@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords" content="Business Cooperation, bona address, bona phone no, bona Email,BONA Headquarter">
+  <meta name="description" content="Business Cooperation, bona address, bona phone no, bona Email,BONA Headquarter">
+  <title>Business cooperation-Business with us -Telephone-Address</title>
+  <!--<link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">-->
+  <link rel="stylesheet" href="./static/css/contact.css">
+  <style>
+    #map {
+      width: 1200px;
+      height: 550px;
+    }
+
+    .gmnoprint,
+    .gm-fullscreen-control,
+    .gm-svpc {
+      display: none;
+    }
+
+    #map img {
+      /*display: none;*/
+    }
+  </style>
+</head>
+
+<body>
+  @@include('header.html',{"contact": "active","subActive":"contact_business"})
+  @@include('contactSubNav.html',{"business": "active"})
+  <div id="banner" class="banner-contact-business">
+    <div class="main-wrap">
+      <div>
+        <p class="banner-title">BONA - Leader Of Intelligent Lifestyle</p>
+        <p class="desc">BONA takes Robot Vacuum Cleaner as the entrance and fulcrum of the industry, firmly follows the strategic product roadmap of from domestic to commercial, indoor to outdoor, low speed to high speed, high frequency use to low frequency use, and constantly creates a newway of intelligent life, and be the leader of intelligent life style.</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="main-wrap business-container">
+      <ul class="address-list">
+        <li>
+          <h5>Shenzhen Branch</h5>
+          <div><span>Address:</span>
+            <p>2F and 3F, Block D, No. 438 Donghuan Road, Shajing Town, Bao’an District, Shenzhen, Guangdong</p>
+          </div>
+          <div><span>Telephone:</span>
+            <p>0755-37639493</p>
+          </div>
+          <div><span>Mail:</span>
+            <p>marketing@robotbona.com</p>
+          </div>
+          <div><span>Monday to Friday:</span>
+            <p>9:30am - 6:30pm</p>
+          </div>
+        </li>
+        <!--<li>-->
+          <!--<h5>番禺分部</h5>-->
+          <!--<div><span>Headquarters Address:</span>-->
+            <!--<p>中国广东省深圳市沙井街道东环路438号D座二、三层</p>-->
+          <!--</div>-->
+          <!--<div><span>总部电话：</span>-->
+            <!--<p>0755-37639493</p>-->
+          <!--</div>-->
+          <!--<div><span>电子邮箱：</span>-->
+            <!--<p>marketing@robotbona.com</p>-->
+          <!--</div>-->
+          <!--<div><span>周一至周五：</span>-->
+            <!--<p>9:30am - 6:30pm</p>-->
+          <!--</div>-->
+        <!--</li>-->
+        <!--<li class="bl-mr0">-->
+          <!--<h5>南沙分部</h5>-->
+          <!--<div><span>Headquarters Address:</span>-->
+            <!--<p>中国广东省深圳市沙井街道东环路438号D座二、三层</p>-->
+          <!--</div>-->
+          <!--<div><span>总部电话：</span>-->
+            <!--<p>0755-37639493</p>-->
+          <!--</div>-->
+          <!--<div><span>电子邮箱：</span>-->
+            <!--<p>marketing@robotbona.com</p>-->
+          <!--</div>-->
+          <!--<div><span>周一至周五：</span>-->
+            <!--<p>9:30am - 6:30pm</p>-->
+          <!--</div>-->
+        <!--</li>-->
+      </ul>
+
+      <div class="map-wrap">
+        <div id="map">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--AIzaSyDhPwldW3uNBPGX50cy8BShKobzUxIMucI-->
+  @@include('footer.html')
+  <script type="text/javascript" src="/srcEn/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/srcEn/static/js/common.js"></script>
+  <script>
+    function initMap() {
+      // The location of Uluru
+      var uluru = {
+        lat: 22.7248014718,
+        lng: 113.8497465669
+      };
+      // The map, centered at Uluru
+      var map = new google.maps.Map(
+        document.getElementById('map'), {
+          zoom: 16,
+          center: uluru
+        });
+      // The marker, positioned at Uluru
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+      });
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCVkmPXzBzJI6hBnF-LJq60jyS0taJTtI&callback=initMap"
+    type="text/javascript"></script>
+</body>
+
+</html>

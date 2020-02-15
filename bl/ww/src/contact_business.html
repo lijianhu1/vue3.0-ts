@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords" content="商务合作，联系地址，联系电话，邮箱，广东宝乐深圳总部。">
+  <meta name="description" content="总部地址：
+    地址：中国广东省深圳市沙井街道东环路438号D座二、三层
+    电话：0755-37639493
+    邮箱：marketing@robotbona.com
+    ">
+  <title>商务合作--广东宝乐机器人商务合作-联系电话-地址</title>
+  <!--<link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">-->
+  <link rel="stylesheet" href="./static/css/contact.css">
+  <style>
+    #allmap {
+      width: 1200px;
+      height: 550px;
+    }
+  </style>
+</head>
+
+<body>
+  @@include('header.html',{"contact": "active","subActive":"contact_business"})
+  @@include('contactSubNav.html',{"business": "active"})
+  <div id="banner" class="banner-contact-business">
+    <div class="main-wrap">
+      <div>
+        <p class="banner-title">宝乐 - 智能生活方式的引领者</p>
+        <p class="desc">宝乐以扫地机器人作为行业入口和支点，坚定地走“从家庭到商用、从室内到室外、从低速到高速、从高频到低频”逐步演进的战略路线，不断创造智能生活新方式，最终成为智能生活方式的引领者。</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="main-wrap business-container">
+      <ul class="address-list">
+        <li>
+          <h5>深圳</h5>
+          <div><span>地址：</span>
+            <p>中国广东省深圳市沙井街道东环路438号D座二、三层</p>
+          </div>
+          <div><span>电话：</span>
+            <p>0755-37639493</p>
+          </div>
+          <div><span>电子邮箱：</span>
+            <p>marketing@robotbona.com</p>
+          </div>
+          <div><span>周一至周五：</span>
+            <p>9:30am - 6:30pm</p>
+          </div>
+        </li>
+        <!--<li>-->
+          <!--<h5>番禺分部</h5>-->
+          <!--<div><span>总部地址：</span>-->
+            <!--<p>中国广东省深圳市沙井街道东环路438号D座二、三层</p>-->
+          <!--</div>-->
+          <!--<div><span>总部电话：</span>-->
+            <!--<p>0755-37639493</p>-->
+          <!--</div>-->
+          <!--<div><span>电子邮箱：</span>-->
+            <!--<p>marketing@robotbona.com</p>-->
+          <!--</div>-->
+          <!--<div><span>周一至周五：</span>-->
+            <!--<p>9:30am - 6:30pm</p>-->
+          <!--</div>-->
+        <!--</li>-->
+        <!--<li class="bl-mr0">-->
+          <!--<h5>南沙分部</h5>-->
+          <!--<div><span>总部地址：</span>-->
+            <!--<p>中国广东省深圳市沙井街道东环路438号D座二、三层</p>-->
+          <!--</div>-->
+          <!--<div><span>总部电话：</span>-->
+            <!--<p>0755-37639493</p>-->
+          <!--</div>-->
+          <!--<div><span>电子邮箱：</span>-->
+            <!--<p>marketing@robotbona.com</p>-->
+          <!--</div>-->
+          <!--<div><span>周一至周五：</span>-->
+            <!--<p>9:30am - 6:30pm</p>-->
+          <!--</div>-->
+        <!--</li>-->
+      </ul>
+
+      <div class="map-wrap">
+        <div id="allmap">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  @@include('footer.html')
+  <script type="text/javascript" src="/src/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=K5ffoagwGOgKCSANcwWyzftqe85K3XVj"></script>
+  <script src="/src/static/js/common.js"></script>
+  <script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    map.addControl(new BMap.NavigationControl({
+      type:BMAP_NAVIGATION_CONTROL_ZOOM,
+      anchor:BMAP_ANCHOR_BOTTOM_RIGHT
+    }));
+    // 创建地址解析器实例
+    var myGeo = new BMap.Geocoder();
+    // 将地址解析结果显示在地图上,并调整地图视野
+    myGeo.getPoint("广东省深圳市沙井街道东环路438号D座", function (point) {
+      if (point) {
+        map.centerAndZoom(point, 16);
+        map.enableScrollWheelZoom();
+        var marker = new BMap.Marker(point); // 创建标注
+        map.addOverlay(marker);
+        var label = new BMap.Label("沙井街道东环路438号D座二、三层", {
+          offset: new BMap.Size(20, -10)
+        });
+        marker.setLabel(label);
+      } else {
+        alert("您选择地址没有解析到结果!");
+      }
+    }, "深圳市");
+  </script>
+</body>
+
+</html>

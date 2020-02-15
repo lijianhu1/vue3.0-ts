@@ -1,0 +1,185 @@
+<div id="header">
+  <div class="header-wrap bl-clearfix pc">
+    <a href="./index.html" class="logo"><img src="./static/images/logo.png" alt="宝乐官网"></a>
+    <div class="language">
+      <a href="javascript:;" class="current">
+        <span>CN</span>
+        <img src="/src/static/images/language_cn.png" alt="宝乐官网">
+      </a>
+      <div class="select">
+        <a href="../en/index.html">
+          <span class="point"></span>EN
+        </a>
+      </div>
+    </div>
+    <ul class="nav" id="nav">
+      <li @@if (context.index==='active' ) { class="active" }><a href="./index.html">首页</a></li>
+      <li @@if (context.about==='active' ) { class="active" }>
+        <a href="./about.html">关于宝乐</a>
+        <div class="select">
+          <p><a @@if (context.subActive==='about' ) { class="sub-active" } href="./about.html">关于宝乐</a></p>
+          <p><a @@if (context.subActive==='about_culture' ) { class="sub-active" } href="./about_culture.html">企业文化</a>
+          </p>
+          <p><a @@if (context.subActive==='about_news' ) { class="sub-active" } href="./about_news.html">新闻动态</a></p>
+          <p><a @@if (context.subActive==='about_honor' ) { class="sub-active" } href="./about_honor.html">企业荣誉</a></p>
+        </div>
+      </li>
+      <li @@if (context.skill==='active' ) { class="active" }>
+        <a href="./skill.html" class="pd40 technology">技术研发</a>
+        <div class="select">
+          <p><a @@if (context.subActive==='skill' ) { class="sub-active" } href="./skill.html">技术研发</a></p>
+          <p><a @@if (context.subActive==='skill_quality' ) { class="sub-active" }
+                href="./skill_quality.html">质量管理与测试</a></p>
+          <p><a @@if (context.subActive==='skill_place' ) { class="sub-active" } href="./skill_place.html">生产基地</a></p>
+        </div>
+      </li>
+      <li @@if (context.product==='active' ) { class="active" }>
+        <a href="./product.html">产品布局</a>
+        <div class="select themeW">
+          <div class="product-nav">
+            <div class="main-wrap">
+              <a href="javascript:;" class="active" data-index="0">扫地机器人</a>
+              <a href="javascript:;" data-index="1">擦窗机器人</a>
+            </div>
+          </div>
+          <div class="product-tab">
+            <div class="main-wrap bl-clearfix">
+
+            </div>
+
+          </div>
+        </div>
+      </li>
+      <li @@if (context.contact==='active' ) { class="active" }>
+        <a href="./contact.html" style="padding-right: 40px;">联系我们</a>
+        <div class="select">
+          <p><a @@if (context.subActive==='contact' ) { class="sub-active" } href="./contact.html">加入宝乐</a></p>
+          <p><a @@if (context.subActive==='contact_business' ) { class="sub-active" } href="./contact_business.html">商务合作</a>
+          </p>
+          <p><a @@if (context.subActive==='contact_experience' ) { class="sub-active" }
+                href="./contact_experience.html">成为体验官</a></p>
+        </div>
+      </li>
+      <li>
+        <a href="javascript:;">国内品牌</a>
+        <div class="select">
+          <p><a
+            href="https://luofuer.tmall.com/shop/view_shop.htm?spm=a1z10.3-b.w5001-16194164600.8.49b87065nSfYaH&mytmenu=mdianpu&utkn=g%2Cylplrjnw7pdozpncwxva1508326519578&user_number_id=2134350625&scm=1028.1.1.20001&scene=taobao_shop"
+            target=_blank>罗弗尔</a></p>
+          <p><a href="http://www.coayu.com/" target=_blank>科语</a></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="header-wrap bl-clearfix mobile">
+    <div class="top bl-clearfix">
+      <a href="./index.html" class="logo bl-fl"><img src="./static/images/logo.png" alt="宝乐官网"></a>
+      <a href="javascript:;" class="bl-fr menu-btn"></a>
+    </div>
+    <nav class="menu-nav">
+      <ul class="nav-wrap">
+        <li class="menu-nav-item">
+          <a href="./index.html" class="menu-nav-wrap">
+            <div class="border-nav">
+              <span class="menu-nav-name">首页</span>
+            </div>
+          </a>
+        </li>
+        <li class="menu-nav-item">
+          <div class="menu-nav-wrap">
+            <div class="border-nav">
+              <span class="menu-nav-name">关于宝乐</span>
+              <span class="menu-nav-icon"></span>
+            </div>
+          </div>
+          <div class="menu-sub-wrap">
+            <a class="menu-sub-item" href="./about.html">关于宝乐</a>
+            <a class="menu-sub-item" href="./about_culture.html">企业文化</a>
+            <a class="menu-sub-item" href="about_news.html">新闻动态</a>
+            <a class="menu-sub-item" href="about_honor.html">企业荣誉</a>
+          </div>
+        </li>
+        <li class="menu-nav-item">
+          <div class="menu-nav-wrap">
+            <div class="border-nav">
+              <span class="menu-nav-name">技术研发</span>
+              <span class="menu-nav-icon"></span>
+            </div>
+          </div>
+          <div class="menu-sub-wrap">
+            <a class="menu-sub-item" href="./skill.html">技术研发</a>
+            <a class="menu-sub-item" href="./skill_quality.html">质量管理与测试</a>
+            <a class="menu-sub-item" href="./skill_place.html">生产基地</a>
+          </div>
+        </li>
+        <li class="menu-nav-item">
+          <div class="menu-nav-wrap">
+            <div class="border-nav">
+              <span class="menu-nav-name">产品布局</span>
+              <span class="menu-nav-icon"></span>
+            </div>
+          </div>
+          <div class="menu-sub-wrap">
+            <!--<a class="menu-sub-item" href="/product?id=8">8系列</a>
+            <a class="menu-sub-item" href="/product?id=7">7系列</a>
+            <a class="menu-sub-item" href="/product?id=6">6系列</a>
+            <a class="menu-sub-item" href="/product?id=5">5系列</a>
+            <a class="menu-sub-item" href="/product?id=1">1系列</a>
+            <a class="menu-sub-item" href="/product?id=k">k系列</a>-->
+            <a class="menu-sub-item" href="./product.html?product=0">扫地机器人</a>
+            <a class="menu-sub-item" href="./product.html?product=1">擦窗机器人</a>
+          </div>
+        </li>
+        <li class="menu-nav-item">
+          <div class="menu-nav-wrap">
+            <div class="border-nav">
+              <span class="menu-nav-name">联系我们</span>
+              <span class="menu-nav-icon"></span>
+            </div>
+          </div>
+          <div class="menu-sub-wrap">
+            <a class="menu-sub-item" href="./contact.html">加入宝乐</a>
+            <a class="menu-sub-item" href="./contact_business.html">商务合作</a>
+            <a class="menu-sub-item" href="./contact_experience.html">成为全球体验官</a>
+          </div>
+        </li>
+        <li class="menu-nav-item">
+          <div class="menu-nav-wrap">
+            <div class="border-nav">
+              <span class="menu-nav-name">国内品牌</span>
+              <span class="menu-nav-icon"></span>
+            </div>
+          </div>
+          <div class="menu-sub-wrap">
+            <a class="menu-sub-item" target="_blank"
+               href="https://luofuer.tmall.com/shop/view_shop.htm?spm=a1z10.3-b.w5001-16194164600.8.49b87065nSfYaH&mytmenu=mdianpu&utkn=g%2Cylplrjnw7pdozpncwxva1508326519578&user_number_id=2134350625&scm=1028.1.1.20001&scene=taobao_shop">罗弗尔</a>
+            <a class="menu-sub-item" target="_blank" href="http://www.coayu.com/">科语</a>
+          </div>
+        </li>
+        <li class="menu-nav-item">
+          <div class="menu-nav-wrap">
+            <div class="border-nav">
+              <span class="menu-nav-name">CN</span>
+              <span class="menu-nav-icon"></span>
+            </div>
+          </div>
+          <div class="menu-sub-wrap">
+            <a class="menu-sub-item" href="../en/index.html">EN</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<script>
+    var mobileUrl = "http://m.robotbona.com/index";
+    var ua = navigator.userAgent;
+    var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+      isIphone =!ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+      isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+      isMobile = isIphone || isAndroid;
+    //判断
+    if(isMobile){
+      window.location.href = mobileUrl;
+    }
+</script>

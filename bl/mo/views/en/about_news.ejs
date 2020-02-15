@@ -1,0 +1,96 @@
+<% include ./header.ejs %>
+<link rel="stylesheet" href="<%- serve.staticPath %>/css/about_en.css">
+<style>
+  body{
+    overflow-y: auto;
+  }
+</style>
+<section class="news-center-head" >
+  <h2><a href="/en/about/news">News Center</a></h2>
+  <!--只取前2个分类-->
+  <ul class="news-classify">
+  </ul>
+</section>
+<ul class="news-list">
+</ul>
+<script src="<%- serve.staticPath %>/js/util/tool.js" ></script>
+<script>
+  $(function () {
+    var loadMore = true;
+    var page = 1;
+    var category = tool.url.get('category')||'';
+    $(window).scroll(function(){
+      let scrollTop =$('html').scrollTop()||$("body").scrollTop();
+      let scrollHeight = $(document).height();
+      let windowHeight = $(this).height();
+      let footerHeight = $("#footer").height();
+      $(".scrollTop").text(scrollTop)
+      $(".scrollHeight").text(scrollHeight)
+      $(".windowHeight").text(windowHeight)
+      if(scrollTop + windowHeight + footerHeight >= scrollHeight){
+        if (loadMore) {
+          loadMore = false;
+          getNewsList(page++);
+        }
+
+      }
+    });
+
+    function getNewsList(cuPage=1) {
+
+        var config = {
+          cuPage: cuPage,
+          pageSize: 10,
+          lang: "en",
+          category
+        };
+        $.get('/api/cp/news/list', config, function (res) {
+          loadMore = true;
+
+          if (res.code == 0 && res.data) {
+            if (res.page.cuPage>=Math.ceil(res.page.count/res.page.pageSize)){
+              loadMore = false;
+            }
+              let newsHtml = ``;
+            for (let i = 0; i < res.data.length; i++) {
+              const item = res.data[i];
+              const _date = item.published_at.split(' ')[0];
+              newsHtml += `<li class="news-item">
+              <a class="news-item-link" href="/en/about/newsDetail/${item.id}">
+                <img src="${item.image}" >
+                <p class="news-desc">
+                  ${item.brief}
+                </p>
+                <span class="news-date">${_date}</span>
+              </a>
+            </li>`
+            };
+            if (cuPage==1){
+              $(".news-list").html(newsHtml);
+            } else {
+              $(".news-list").append(newsHtml);
+            }
+          }
+        });
+
+    };
+    function categoryList(){
+      $.get("/api/cp/category/list",{lang:'en'},function (res) {
+        if (res.code==0){
+          let categoryHtml = ``;
+          let categoryData = res.data.slice(0,2);
+          for (let i=0;i<categoryData.length;i++){
+            categoryHtml+=`<li><a href="/en/about/news?category=${categoryData[i].id}" class="${categoryData[i].id==category?'active':''}">${categoryData[i].title}</a></li>`
+          }
+          $(".news-classify").html(categoryHtml)
+        }
+      })
+    }
+    categoryList();
+    getNewsList();
+
+    $('html').scrollTop(0)
+  });
+
+</script>
+<% include ./footer.ejs %>

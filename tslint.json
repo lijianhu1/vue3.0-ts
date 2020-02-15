@@ -17,6 +17,12 @@
     "quotemark": [false, "single"],
     "no-console": false,
     "trailing-comma": false,
-    "semicolon": false
+    "semicolon": false,
+    "max-line-length": {
+      "options": {
+        "limit": 150
+      }
+    },
+    "strictNullChecks": false
   }
 }

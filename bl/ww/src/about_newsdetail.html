@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>新闻动态</title>
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./lib/share/css/share.min.css">
+</head>
+
+<body>
+  @@include('header.html',{"about": "active","subActive":"about_news"})
+  @@include('indexSubNav.html',{"news": "active"})
+  <div id="banner-small" class="banner-about-news"></div>
+  <div class="main">
+
+    <div class="newsdetail-container">
+      <div class="newsdetail-header">
+        <div class="main-wrap">
+          <p class="newsdetail-title"></p>
+          <div class="bl-flex">
+            <span class="newsdetail-date">
+              <i class="icon icon-riqi"></i>
+              <span class="riqi"></span>
+            </span>
+            <!--<div class="bl-fr">-->
+            <!--分享：-->
+            <!--<span class="share"></span>-->
+            <!--</div>-->
+          </div>
+        </div>
+
+      </div>
+      <div class="newsdetail-wrap">
+        <div class="main-wrap">
+          <div class="newsdetail-con">
+
+          </div>
+          <div class="sidebar">
+            <img src="static/images/index/tupian-13.png" alt="宝乐新闻">
+            <img src="static/images/index/tupian-12.png" alt="宝乐新闻">
+            <img src="static/images/index/tupian-15.png" alt="宝乐新闻">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  @@include('footer.html')
+  <script type="text/javascript" src="/src/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/src/lib/jquery/jquery.xdomainrequest.min.js"></script>
+  <script src="/src/lib/share/js/social-share.min.js"></script>
+  <script src="/src/static/js/util/serviceUrl.js"></script>
+  <script src="/src/static/js/util/tool.js"></script>
+  <script src="/src/static/js/common.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      ajaxService.newsDetail({
+        id: tool.url.get('id')
+      }, function (res) {
+        if (res.code == 0) {
+          $(".newsdetail-title").text(res.data.title);
+          $(".newsdetail-date .riqi").text(res.data.published_at);
+          $(".newsdetail-con").html(res.data.extended);
+
+          var $config = {
+            title: res.data.title,
+            description: res.data.brief,
+            wechatQrcodeTitle: "微信扫一扫", // 微信二维码提示文字
+            wechatQrcodeHelper: '',
+            sites: ['qq', 'weibo', 'wechat'],
+            // sites: ['facebook', 'twitter'],
+          };
+
+          // socialShare('.share', $config);
+        }
+      });
+
+    })
+  </script>
+</body>
+
+</html>

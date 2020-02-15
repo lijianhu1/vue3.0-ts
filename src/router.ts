@@ -5,26 +5,43 @@ import Home from './views/Home.vue';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-    },
-      {
-          path: '/test',
-          name: 'test',
-          component: () => import('./views/Test.vue'),
-      },
-  ],
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes: [
+        {
+            path: '/',
+            name: 'home',
+            component: Home,
+            children: [{
+                path: '/user',
+                name: 'user',
+                component: () => import('./views/User.vue'),
+            }, {
+                path: '/chat',
+                name: 'chat',
+                component: () => import('./views/chat/Index.vue'),
+            }],
+        },
+        {
+            path: '/about',
+            name: 'about',
+            // route level code-splitting
+            // this generates a separate chunk (about.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+        },
+        {
+            path: '/test',
+            name: 'test',
+            component: () => import('./views/Test.vue'),
+        }, {
+            path: '/calendar',
+            name: 'calendar',
+            component: () => import('./components/Calendar.vue'),
+        }, {
+            path: '/login',
+            name: 'login',
+            component: () => import('./views/Login.vue'),
+        }
+    ],
 });

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords" content="宝乐奖项，企业荣誉，企业认证证书">
+  <meta name="description" content="宝乐荣获国内外多项认证及产品设计奖项，已认证为中国国家高新技术企业。">
+  <title>企业荣誉-关于宝乐-广东宝乐机器人官网</title>
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+
+<body>
+  @@include('header.html',{"about": "active","subActive":"about_honor"})
+  @@include('indexSubNav.html',{"honor": "active"})
+  <div id="banner" class="banner-about-honor">
+    <div class="main-wrap">
+      <div>
+        <p class="banner-title">企业荣誉</p>
+        <p class="desc">广东宝乐创建于2004年，总部位于广州市，占地面积约50000平方米，是一家集研发、生产、销售于一体的国家高新技术企业。</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="honor">
+      <div class="main-wrap">
+        <ul class="honor-list">
+          <li class="honor-item active">
+            <span class="year-title">18</span>
+            <div class="honor-item-con" data-year="2018">
+              <div>
+                <strong>2018</strong>
+                <p> <span class="honor-aItem bl-color-_333">擦窗机器人W902入选设计的答卷一当代中国设计作品展</span></p>
+                <p><span class="honor-aItem">扫地机器人产品入驻全球最大红点博物馆</span></p>
+                <p><span class="honor-aItem">扫地机器人C580s荣获当代好设计CGD金奖</span></p>
+              </div>
+              <img src="./static/images/about/honor/2018_0.jpg" alt="宝乐企业荣誉">
+            </div>
+          </li>
+          <li class="honor-item">
+            <span class="year-title">17</span>
+            <div class="honor-item-con" data-year="2017">
+              <div>
+                <strong>2017</strong>
+                <p> <span class="honor-aItem">荣获中国知识产权管理体系认证证书。</span></p>
+              </div>
+              <img src="./static/images/about/honor/2017_0.jpg" alt="宝乐企业荣誉">
+            </div>
+          </li>
+          <li class="honor-item">
+            <span class="year-title">16</span>
+            <div class="honor-item-con" data-year="2016">
+              <div>
+                <strong>2016</strong>
+                <p>
+                  <span class="honor-aItem">
+                    荣获中国国家高新技术企业证书 <br /> 通过ISO9001 国际质量体系认证
+                  </span>
+                </p>
+
+              </div>
+              <img src="./static/images/about/honor/2016_0.jpg" alt="宝乐企业荣誉">
+            </div>
+          </li>
+        </ul>
+        <!-- <h1 class=" bl-fontsize40">企业荣誉</h1> -->
+        <!-- <ul class="honor-list">
+          <li class="honor-item">
+            <div class="bl-fl">
+              <strong>2018</strong>
+              <p>扫地机器人产品入驻全球最大红点博物馆</p>
+            </div>
+            <div class="bl-fr">
+              <img src="./static/images/about/honor/2018_1.jpg" alt="">
+            </div>
+          </li>
+          <li class="honor-item">
+            <div class="bl-fl">
+              <strong>2018</strong>
+              <p>擦窗机器人W902入选“设计的答卷 — 当代中国设计作品展”。</p>
+            </div>
+            <div class="bl-fr">
+              <img src="./static/images/about/honor/2018_0.jpg" alt="">
+            </div>
+          </li>
+
+          <li class="honor-item">
+            <div class="bl-fl">
+              <strong>2017</strong>
+              <p>荣获中国知识产权管理体系认证证书。</p>
+              <p>宝乐在广州开设分厂，总产能扩大到每年300万台。</p>
+            </div>
+            <div class="bl-fr">
+              <img src="./static/images/about/honor/2017_0.jpg" alt="">
+            </div>
+          </li>
+          <li class="honor-item not-bor">
+            <div class="bl-fl">
+              <strong>2016</strong>
+              <p>荣获中国国家高新技术企业证书</p>
+              <p>通过ISO9001 国际质量体系认证</p>
+            </div>
+            <div class="bl-fr">
+              <img src="./static/images/about/honor/2016_0.jpg" alt="">
+            </div>
+          </li>
+        </ul> -->
+      </div>
+    </div>
+  </div>
+
+  @@include('footer.html')
+  <script type="text/javascript" src="/src/lib/jquery/jquery.min.js"></script>
+  <script src="/src/static/js/common.js"></script>
+  <!--<script src="/src/static/js/about.js"></script>-->
+  <script type="text/javascript">
+    $(function () {
+      var honor = {
+        "2016": [{
+          "text": "<p>荣获中国国家高新技术企业证书。</p><p>通过ISO9001 国际质量体系认证。</p>"
+        }],
+        "2017": [{
+          "text": "<p>荣获中国知识产权管理体系认证证书。</p><p>宝乐在广州开设分厂，总产能扩大到每年300万台。</p>"
+        }],
+        "2018": [{
+            "text": "擦窗机器人W902入选设计的答卷一当代中国设计作品展”。"
+          },
+          {
+            "text": "扫地机器人C580s荣获当代好设计CGD金奖"
+          }, {
+            "text": "扫地机器人产品入驻全球最大红点博物馆"
+          }
+        ]
+      };
+      var timer;
+      var idx = 0;
+      $(".honor-aItem").on("mouseenter", function () {
+        // clearInterval(timer);
+        var index = $(this).parent('p').index() - 1;
+        idx = index;
+        var year = $(this).parents(".honor-item-con").data('year');
+        $(this).parents(".honor-item-con").children("img").attr("src", "./static/images/about/honor/" + year + "_" + index + ".jpg");
+        $(this).addClass('bl-color-_333').parent().siblings().children('.honor-aItem').removeClass('bl-color-_333');
+      });
+      $('.honor-aItem').on('mouseleave', function () {
+        var len = $(this).parents(".honor-item-con").find("p").length;
+        var self = $(this)
+        // if (len > 1) {
+        //   timer = setInterval(function () {
+        //     timeFun(self.parents(".honor-item-con"));
+        //   }, 3000);
+        // }
+      });
+
+      $('.honor-item').click(function () {
+        // clearInterval(timer);
+        idx = 0;
+        $(this).addClass('active').siblings().removeClass('active');
+        var year = $(this).find('.honor-item-con').data('year');
+        $(this).find('.honor-item-con img').attr('src', "./static/images/about/honor/" + year + "_" + "0.jpg");
+        $(this).find("p").eq(0).children(".honor-aItem").addClass('bl-color-_333').parent().siblings().children('.honor-aItem').removeClass(
+          'bl-color-_333');
+        var childLen = $(this).find(".honor-item-con p").length;
+        var self = $(this)
+        // if (childLen > 1) {
+        //   timer = setInterval(function () {
+        //     timeFun(self.find('.honor-item-con'));
+        //   }, 3000);
+        // }
+      });
+
+      function timeFun(el) {
+        var childLen = el.find('p').length;
+        var year = el.data('year');
+        // idx++;
+        if (idx >= childLen) idx = 0;
+        el.find('img').attr('src', "./static/images/about/honor/" + year + "_" + idx + ".jpg");
+        el.find("p").eq(idx).children(".honor-aItem").addClass('bl-color-_333').parent()
+          .siblings().children('.honor-aItem').removeClass('bl-color-_333');
+      };
+      // timer = setInterval(function () {
+        timeFun($(".honor-list .honor-item").eq(0).children(".honor-item-con"));
+      // }, 3000);
+
+    });
+  </script>
+</body>
+
+</html>

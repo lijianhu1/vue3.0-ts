@@ -1,0 +1,71 @@
+<% include ./header.ejs %>
+<link rel="stylesheet" href="<%- serve.staticPath %>/css/about.css">
+<section class="honor-big-img">
+  <h1 class="title">企业荣誉</h1>
+  <span class="bl-text-sign"></span>
+  <div class="desc">
+    广东宝乐创建于2004年，总部位于广州市，占地面积约50000平方米，是一家集研发、生产、销售于一体的国家高新技术企业。
+  </div>
+</section>
+
+<div class="honor">
+  <div class="honor-con">
+    <strong class="year">2018</strong>
+    <ul class="honor-list">
+
+    </ul>
+  </div>
+  <div class="honor-img">
+    <img src="<%- serve.staticPath %>/img/about-2.png" alt="宝乐荣誉">
+  </div>
+  <ul class="honor-year">
+    <li class="active">2018</li>
+    <li>2017</li>
+    <li>2016</li>
+  </ul>
+</div>
+
+<script>
+  var honor = {
+    "2016": [{
+      "text": "<p>荣获中国国家高新技术企业证书。</p><p>通过ISO9001 国际质量体系认证。</p>"
+    }],
+    "2017": [{
+      "text": "<p>荣获中国知识产权管理体系认证证书。</p><p>宝乐在广州开设分厂，总产能扩大到每年300万台。</p>"
+    }],
+    "2018": [{
+      "text": "擦窗机器人W902入选设计的答卷一当代中国设计作品展”。"
+    },
+      {
+        "text": "扫地机器人C580s荣获当代好设计CGD金奖"
+      }, {
+        "text": "扫地机器人产品入驻全球最大红点博物馆"
+      }
+    ]
+  };
+  $(function () {
+    activeYear();
+    function activeYear() {
+      var year = $(".honor-year").find(".active").text();
+      $(".honor-con .year").text(year);
+      var honorData = honor[year];
+      var honorHtml = ``;
+      honorData.forEach(function (item,i) {
+        honorHtml += `<li class="${i===0?'bl-color-_333':''}">${item.text}</li>`
+      });
+    $(".honor-list").html(honorHtml);
+    $(".honor-img").html(`<img src="<%- serve.staticPath %>/img/honor/${year}_0.jpg" alt="宝乐荣誉">`)
+    }
+    $(".honor-year").on("click","li",function () {
+      $(this).addClass('active').siblings().removeClass('active');
+      activeYear();
+    });
+    $(".honor-list").on("click","li",function () {
+      var index = $(this).index();
+      var year = $(".honor-year").find(".active").text();
+      $(this).addClass("bl-color-_333").siblings().removeClass('bl-color-_333');
+      $(".honor-img").html(`<img src="<%- serve.staticPath %>/img/honor/${year}_${index}.jpg" alt="宝乐荣誉">`)
+    })
+  })
+</script>
+<% include ./footer.ejs %>

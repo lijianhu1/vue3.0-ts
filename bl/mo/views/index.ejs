@@ -1,0 +1,170 @@
+<% include ./header.ejs %>
+<link rel="stylesheet" href="<%- serve.staticPath %>/js/swiper/swiper.min.css">
+<script src="<%- serve.staticPath %>/js/swiper/swiper.min.js" ></script>
+<link rel="stylesheet" href="<%- serve.staticPath %>/css/index.css">
+
+<section id="swiper-banner">
+    <div class="swiper-wrapper">
+      <%
+      if(nodeData && nodeData.cpBannerList&& typeof nodeData.cpBannerList.data !== 'undefined') {
+        let banners=nodeData.cpBannerList.data
+      banners.forEach(function(item, index){
+      %>
+      <div class="swiper-slide" style="">
+        <% if(item.link_to_mobi!='' && item.link_to_mobi!=undefined) { %>
+        <% console.log(item.image_mobi) %>
+        <a href="<%- item.link_to_mobi %>"><img src="<%- item.image_mobi %>" alt="<%= item.title %>"></a>
+        <% } else { %>
+        <% console.log(item.image_mobi) %>
+        <img src="<%- item.image_mobi %>" alt="<%= item.title %>">
+        <% } %>
+      </div>
+      <%
+      })
+      }
+      %>
+  </div>
+  <div class="banner-pagination"></div>
+</section>
+<section class="video-section">
+  <h2>关于宝乐</h2>
+  <p>宝乐拥有国内领先的技术研发团队，累计共申请300余项国内外专利，目前已获得140多项授权专利，授权专利遍布全球，包括美国、欧盟、中国以及中国台湾地区。</p>
+  <a href="/about" class="more-btn">查看更多</a>
+  <div class="video-wrap">
+    <div class="video-img">
+      <img src="<%- serve.staticPath %>/img/index-play.png" alt="">
+    </div>
+    <video id="video" autoplay="autoplay" controls="controls" loop="loop" muted webkit-playsinline="true" playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="object-fit:fill">
+      <source  src="http://cdn-robotbona.robotbona.com/video/videoCn.mp4" type="video/mp4" />
+    </video>
+  </div>
+</section>
+<section class="vision">
+  <a href="/about/culture" class="vision-wrap">
+    <h2>宝乐愿景</h2>
+    <p>成为智能生活方式的引领者</p>
+  </a>
+</section>
+<section class="product">
+  <div class="product-wrap">
+    <a href="/product?id=8" class="pro-item item1">
+      <span>产品中心 &gt;</span>
+    </a>
+    <a href="/skill_research" class="pro-item item2">
+      <span href="javascript:;">技术应用 &gt;</span>
+    </a>
+  </div>
+</section>
+<section class="news">
+  <div class="news-head">
+    <h2 class="bl-color-_333 bl-fontsize20">新闻中心</h2>
+    <a href="/about/news" class="bl-color-_666 bl-fontsize12">查看更多 &gt;</a>
+  </div>
+  <div class="news-wrap">
+    <div class="swiper-wrapper">
+      <%
+      if(nodeData && nodeData.cpNewsIndex&& typeof nodeData.cpNewsIndex.data !== 'undefined') {
+        let news=nodeData.cpNewsIndex.data;
+      if(news.length===1){
+        let item = news[0];
+        for(let i=0;i<3;i++){ %>
+      <div class="swiper-slide">
+        <a href="/about/newsDetail/<%= item.id %>" class="news-link">
+          <div class="news-img">
+            <img class="news-img" src="<%= item.image %>" alt="">
+          </div>
+          <div class="new-text">
+            <h3 class="news-title"><%= item.title %></h3>
+            <p class="news-desc">
+              <%= item.brief||"" %>
+            </p>
+          </div>
+        </a>
+      </div>
+      <% }}else{
+      news.forEach(function(item, index){
+      %>
+      <div class="swiper-slide">
+        <a href="/about/newsDetail/<%= item.id %>" class="news-link">
+          <div class="news-img">
+            <img class="news-img" src="<%= item.image %>" alt="">
+          </div>
+          <div class="new-text">
+            <h3 class="news-title"><%= item.title %></h3>
+            <p class="news-desc">
+              <%= item.brief||"" %>
+            </p>
+          </div>
+        </a>
+      </div>
+      <%
+      })
+      }}
+      %>
+    </div>
+    <div class="banner-pagination"></div>
+  </div>
+</section>
+<section class="app">
+  <h2>智能家居生活“指”需轻点</h2>
+  <div class="app-desc">
+    <span>简易的操作体验</span>
+    <span>全面的功能控制</span>
+  </div>
+  <div class="download-app">
+    <a href="https://apps.apple.com/cn/app/id1339107233" class="bl-mr11">
+      <img src="<%- serve.staticPath %>/img/index-7.png" alt="宝乐APP">
+    </a>
+    <a href="https://a.app.qq.com/o/simple.jsp?pkgname=com.baole.blap" class="bl-ml11">
+      <img src="<%- serve.staticPath %>/img/index-6.png" alt="宝乐APP">
+    </a>
+  </div>
+  <div class="big-img">
+    <img src="<%- serve.staticPath %>/img/index-5.png" alt="宝乐APP">
+  </div>
+</section>
+<script>
+  $(function(){
+    /*banner轮播图*/
+    var bannerSwiper = new Swiper ('#swiper-banner', {
+      direction: 'horizontal',
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction:false,
+      },//可选选项，自动滑动
+      loop: true, // 循环模式选项
+      centeredSlides: true,
+      // 如果需要分页器
+      pagination: {
+        el: '#swiper-banner .banner-pagination',
+      },
+    });
+    var newsSwiper = new Swiper ('.news-wrap', {
+      direction: 'horizontal',
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction:false,
+      },
+      loop: true, // 循环模式选项
+      centeredSlides: true,
+      slidesPerView: 1.4,
+      initialSlide:1,
+      // spaceBetween : 15,
+      // 如果需要分页器
+      pagination: {
+        el: '.news-wrap .banner-pagination',
+        clickable :true,
+      },
+    });
+    var video = document.getElementById("video");
+    $('.video-img').click(function(){
+      $(this).hide();
+      $('#video').show();
+      video.play();
+    });
+    if ("<%= nodeData.cpNewsIndex.data.length %>"==0){
+      $(".news").hide()
+    }
+  });
+</script>
+<% include ./footer.ejs %>

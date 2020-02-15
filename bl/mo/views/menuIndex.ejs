@@ -1,0 +1,105 @@
+<% include ./header.ejs %>
+
+<div class="head-nav">
+    <div class="head-nav-box">
+        <a class="CN-Medium font-14" href="<%- serve.basePath %>/">首页</a>
+    </div>
+    <div class="head-nav-box product-center">
+        <a class="CN-Medium font-14" href="<%- serve.basePath %>/productCenter">产品中心</a>
+    </div>
+    <div class="head-nav-box service-a">
+        <a class="CN-Medium font-14" href="javascript:;">服务支持</a>
+    </div>
+    <div class="head-nav-box about-a">
+        <a class="CN-Medium font-14" href="javascript:;">关于科语</a>
+    </div>
+</div>
+<div class="content-nav-box">
+    <div class="head-back-box CN-Regular">返回</div>
+    <div class="product-nav">
+        <div class="head-nav-box">
+            <a class="CN-Medium font-14" href="<%- serve.basePath %>/productCenter">5系列</a>
+        </div>
+        <div class="head-nav-box">
+            <a class="CN-Medium font-14" href="<%- serve.basePath %>/productCenter6">6系列</a>
+        </div>
+        <div class="head-nav-box">
+            <a class="CN-Medium font-14" href="<%- serve.basePath %>/productCenter8">8系列</a>
+        </div>
+        <div class="head-nav-box">
+            <a class="CN-Medium font-14" href="<%- serve.basePath %>/productCenter2">2系列</a>
+        </div>
+        <div class="head-nav-box">
+            <a class="CN-Medium font-14" href="<%- serve.basePath %>/productCenter1">1系列</a>
+        </div>
+        <div class="head-nav-box">
+            <a class="CN-Medium font-14" href="<%- serve.basePath %>/productCenter3">擦窗机</a>
+        </div>
+    </div>
+    <div class="service-nav">
+        <div class="head-nav-box">
+            <a class="font-14" href="<%- serve.basePath %>/serviceSupport">服务支持</a>
+        </div>
+        <div class="head-nav-box">
+            <a class="font-14" href="<%- serve.basePath %>/keyuApp">科语APP</a>
+        </div>
+        <div class="head-nav-box">
+            <a class="font-14" href="<%- serve.basePath %>/saleService">售后政策</a>
+        </div>
+        <div class="head-nav-box">
+            <a class="font-14" href="<%- serve.basePath %>/market">联系我们</a>
+        </div>
+    </div>
+    <div class="about-nav">
+        <div class="head-nav-box">
+            <a class="font-14" href="<%- serve.basePath %>/aboutKeyu">企业介绍</a>
+        </div>
+        <div class="head-nav-box">
+            <a class="font-14" href="<%- serve.basePath %>/aboutKeyu1">品牌实力</a>
+        </div>
+        <div class="head-nav-box">
+            <a class="font-14" href="<%- serve.basePath %>/aboutKeyu2">企业资讯</a>
+        </div>
+        <div class="head-nav-box">
+            <a class="font-14" href="<%- serve.basePath %>/aboutKeyu3">成为经销商</a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function(){
+        $('.nav-btn').addClass('cancel');
+
+        $('.cancel').click(function(){
+            window.history.go(-1);
+        });
+
+//        //弹出产品系列
+//        $('.product-center').click(function(){
+//            $('.content-nav-box').css('top',46+'px');
+//            $('.product-nav').show();
+//        });
+
+
+        //弹出服务支持
+        $('.service-a').click(function(){
+            $('.content-nav-box').css('left',0);
+            $('.service-nav').show();
+        });
+
+        //弹出关于科语
+        $('.about-a').click(function(){
+            $('.content-nav-box').css('left',0);
+            $('.about-nav').show();
+        });
+
+        //关闭弹窗
+        $('.head-back-box').click(function(){
+            $('.content-nav-box').css('left',-700+'px');
+            $('.product-nav').hide();
+            $('.service-nav').hide();
+            $('.about-nav').hide();
+        });
+    });
+</script>

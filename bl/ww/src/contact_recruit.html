@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <!--<link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">-->
+  <link rel="stylesheet" href="./static/css/contact.css">
+  <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  @@include('header.html',{"contact": "active","subActive":"contact"})
+  @@include('contactSubNav.html',{"join": "active"})
+  <div id="banner">
+
+  </div>
+  <div class="main">
+    <div class="main-wrap recruit-container">
+      <p class="title">在这里你将获得</p>
+      <div class="recruit-msg">
+        <ul class="bl-fl">
+          <li>年轻朝气的同事和团队</li>
+          <li>快速清晰的职业发展</li>
+          <li>具有竞争力的薪酬福利</li>
+          <li>入职即享有五险一金</li>
+        </ul>
+        <ul class="bl-fl" style="border-right: none">
+          <li>透明高效的沟通风格</li>
+          <li>完善全面的培训体制</li>
+          <li>带薪年假让你劳逸结合</li>
+        </ul>
+      </div>
+      <p class="title">招聘职位</p>
+      <div class="position">
+        <div class="position-header bl-pb20 bl-font-bold">
+          <span class="name">校园招聘职位</span>
+          <span class="column20">工作地点</span>
+          <span class="column20">薪资</span>
+          <span class="time">发布时间</span>
+        </div>
+        <ul class="position-list">
+
+        </ul>
+
+      </div>
+      <div class="delivery">
+        <a href="https://jobs.51job.com/all/co4851268.html" target=_blank>更多职位</a>
+        <p>投递邮箱： wuxz@robotbona.com</p>
+      </div>
+      <div class="footer-img">
+        <img src="/src/static/images/contact/shehuizhaopin2.png" class="ban" alt="宝乐招聘职位">
+        <img src="/src/static/images/contact/fuhao.png" alt="宝乐招聘职位">
+        <p class="bl-text-center bl-color-_999 bl-mt12">加入宝乐</p>
+      </div>
+    </div>
+  </div>
+
+  @@include('footer.html')
+  <script type="text/javascript" src="/src/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/src/static/js/util/tool.js"></script>
+  <script src="/src/static/js/common.js"></script>
+  <script type="text/javascript" src="/src/static/js/recruit.js"></script>
+</body>
+
+</html>

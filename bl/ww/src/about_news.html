@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords" content="宝乐新闻动态，宝乐企业资讯，宝乐资讯速递，宝乐新闻，宝乐品牌宣传">
+  <meta name="description" content="广东宝乐机器人最新的业界新闻、企业宣传等。">
+  <title>新闻动态-宝乐机器人-宝乐官方网站</title>
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+
+<body>
+  @@include('header.html',{"about": "active","subActive":"about_news"})
+  @@include('indexSubNav.html',{"news": "active"})
+  <div id="banner-small" class="banner-about-news"></div>
+  <div class="main">
+
+    <div class="main-wrap news-container">
+      <div class="news-list">
+
+      </div>
+      <div class="news-sidebar">
+        <div class="news-condition">
+          <h4>新闻中心</h4>
+          <ul class="news-cen-list">
+
+          </ul>
+        </div>
+        <div class="news-condition recommend">
+          <h4>展会推荐</h4>
+          <div class="news-recommend-list">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-wrap">
+      <div class="pagination-box">
+      </div>
+    </div>
+  </div>
+  @@include('footer.html')
+  <script type="text/javascript" src="/src/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/src/lib/jquery/jquery.xdomainrequest.min.js"></script>
+  <script type="text/javascript" src="/src/static/js/util/jquery.page.js"></script>
+  <script src="/src/static/js/util/tool.js"></script>
+  <script src="/src/static/js/util/serviceUrl.js"></script>
+  <script src="/src/static/js/common.js"></script>
+  <script type="text/javascript" src="/src/static/js/news.js"></script>
+</body>
+
+</html>

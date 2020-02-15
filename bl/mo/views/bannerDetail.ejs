@@ -1,0 +1,21 @@
+<% include header.ejs %>
+<script src="<%- serve.staticPath %>/js/jquery.min.js?<%- serve.stc %>" ></script>
+<script src="<%- serve.staticPath %>/js/jquery.lazyload.min.js"></script>
+
+<!-- C510 -->
+<div class="banner">
+    <img data-original="<%- serve.staticPath %>/img/bannerDetail/banner-detail-01-01.png">
+    <img data-original="<%- serve.staticPath %>/img/bannerDetail/banner-detail-01-02.png">
+    <img data-original="<%- serve.staticPath %>/img/bannerDetail/banner-detail-01-03.png">
+</div>
+
+<script>
+    $(function() {
+        $('img').lazyload({
+            placeholder : "<%- serve.staticPath %>/img/jiazaizhong.png",
+            effect: "fadeIn",
+            threshold: 180
+        });
+    });
+</script>
+<% include footer.ejs %>

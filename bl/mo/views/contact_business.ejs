@@ -1,0 +1,73 @@
+<% include ./header.ejs %>
+<link rel="stylesheet" href="<%- serve.staticPath %>/css/contact.css">
+<style>
+    #allmap {
+        width: 100%;
+        height: 325px;
+    }
+    .anchorBL{
+        display:none;
+    }
+</style>
+
+<div id="banner" class="banner-contact-business"></div>
+<div class="main">
+    <div class="business-container">
+        <div class="banner-container">
+            <div>
+                <p class="title">宝乐 - 智能生活方式的引领者</p>
+                <p class="red-line"></p>
+                <p class="desc">宝乐以扫地机器人作为行业入口和支点，坚定地走“从家庭到商用、从室内到室外、从低速到高速、从高频到低频”逐步演进的战略路线，不断创造智能生活新方式，最终成为智能生活方式的引领者。</p>
+            </div>
+        </div>
+        <ul class="address-list">
+            <li>
+                <h5>深圳</h5>
+                <div>
+                    <p>地址：中国广东省深圳市沙井街道东环路438号D座二、三层</p>
+                </div>
+                <div>
+                    <p>电话：0755-37639493</p>
+                </div>
+                <div>
+                    <p>电子邮箱：marketing@robotbona.com</p>
+                </div>
+                <div>
+                    <p>周一至周五：9:30am - 6:30pm</p>
+                </div>
+            </li>
+        </ul>
+        <div class="map-wrap">
+            <div id="allmap">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=K5ffoagwGOgKCSANcwWyzftqe85K3XVj"></script>
+<script type="text/javascript">
+  // 百度地图API功能
+  var map = new BMap.Map("allmap");
+  map.addControl(new BMap.NavigationControl({
+    type:BMAP_NAVIGATION_CONTROL_ZOOM,
+    anchor:BMAP_ANCHOR_BOTTOM_RIGHT
+  }));
+  // 创建地址解析器实例
+  var myGeo = new BMap.Geocoder();
+  // 将地址解析结果显示在地图上,并调整地图视野
+  myGeo.getPoint("广东省深圳市沙井街道东环路438号D座", function (point) {
+    if (point) {
+      map.centerAndZoom(point, 16);
+      map.enableScrollWheelZoom();
+      var marker = new BMap.Marker(point); // 创建标注
+      map.addOverlay(marker);
+      var label = new BMap.Label("沙井街道东环路438号D座二、三层", {
+        offset: new BMap.Size(20, -10)
+      });
+      marker.setLabel(label);
+    } else {
+      alert("您选择地址没有解析到结果!");
+    }
+  }, "深圳市");
+</script>
+<% include ./footer.ejs %>

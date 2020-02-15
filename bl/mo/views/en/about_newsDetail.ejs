@@ -1,0 +1,19 @@
+<% include ./header.ejs %>
+<link rel="stylesheet" href="<%- serve.staticPath %>/css/about_en.css">
+
+<section class="news-detail">
+  <div class="news-detail-head">
+    <h1 class="news-title"><%- nodeData.data.title || '' %></h1>
+    <div class="new-aside">
+      <i class="icon-2"></i>
+      <span class="news-date"><%- nodeData.data.published_at || '' %></span>
+    </div>
+  </div>
+  <div class="news-detail-con">
+    <%- serve.striptags(nodeData.data.extended,['img','a','br','b','em','strong'], '\n') %>
+  </div>
+</section>
+<script>
+
+</script>
+<% include ./footer.ejs %>

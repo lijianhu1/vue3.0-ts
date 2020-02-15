@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no, viewport-fit=cover" />
+    <meta name="keywords" content="<%= keywords %>">
+    <meta name="description" content="<%= Description %>">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='<%- serve.staticPath %>/css/base.css?<%- serve.stc %>' />
+    <script src="<%- serve.staticPath %>/js/zepto.min.js?<%- serve.stc %>" ></script>
+</head>
+<body>
+
+<header id="header">
+    <div class="top">
+        <span class="logo">
+            <a href="<%- serve.basePath %>/en/index" title="robotBona"></a>
+        </span>
+        <span class="menu-icon iconfont icongengduo"></span>
+        <span class="menu-icon iconfont iconguanbi"></span>
+    </div>
+    <% include ./nav.ejs %>
+</header>
+<div class="placeholder"></div>
+<% if(typeof(subNavName)!='undefined'){ %>
+<section id="sub-nav" >
+    <div class="sub-nav-head <%= typeof(subNavBannerClass)!='undefined' ? subNavBannerClass: '' %>">
+        <div class="current">
+            <span><%= subNavName %></span>
+            <i class="iconfont icondown2"></i>
+        </div>
+    </div>
+    <div class="sub-nav-model">
+        <div class="sub-nav-list">
+            <% subNavList.forEach(function(item){ %>
+            <a href="<%= item.link %>" class="sub-nav-item"><span><%= item.name %></span></a>
+            <% }) %>
+        </div>
+    </div>
+</section>
+<div class="placeholder"></div>
+<% } %>
+
+<script>
+  $(function(){
+    var ua = navigator.userAgent;
+    var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
+      isIphone =!ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
+      isAndroid = ua.match(/(Android)\s+([\d.]+)/),
+      isMobile = isIphone || isAndroid;
+    //判断
+    if(!isMobile){
+      window.location.href = '<%- serve.redirect %>';
+    }
+  });
+  var scrollTop = 0;
+  $(".menu-icon").on("click",function () {
+    var header = $(this).parents('#header');
+    scrollTop = $("html").scrollTop()||$(window).scrollTop();
+    if (header.hasClass('show')) {
+      header.removeClass('show');
+      ModalHelper.beforeClose()
+    }else {
+      header.addClass('show');
+      ModalHelper.afterOpen()
+    }
+  });
+
+  $(".current,.sub-nav-model").on("click", function () {
+    modelFun()
+  });
+  $(".sub-nav-list").on("click", ".sub-nav-item", function (e) {
+    e.stopPropagation();
+  });
+  function modelFun(){
+    if($(".current").hasClass('active')){
+      $(".current").removeClass('active');
+      $(".sub-nav-model").hide();
+      ModalHelper.beforeClose()
+    }else {
+      $(".current").addClass('active');
+
+      $(".sub-nav-model").show();
+      ModalHelper.afterOpen()
+    }
+  }
+  // 弹框穿透函数
+  var ModalHelper = (function(bodyCls) {
+    var scrollTop;
+    return {
+      afterOpen: function() {
+        scrollTop = document.scrollingElement.scrollTop;
+        document.body.classList.add(bodyCls);
+        document.body.style.top = -scrollTop + 'px';
+        $("video").hide()
+      },
+      beforeClose: function() {
+        document.body.classList.remove(bodyCls);
+        // scrollTop lost after set position:fixed, restore it back.
+        document.scrollingElement.scrollTop = scrollTop;
+        if ($(".video-img").length>0&&$(".video-img").css("display")=='none'){
+          $("video").show()
+        }
+      }
+    };
+  })('modal-open');
+</script>
+
+

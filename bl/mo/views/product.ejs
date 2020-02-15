@@ -1,0 +1,175 @@
+<% include ./header.ejs %>
+<link rel="stylesheet" href="<%- serve.staticPath %>/css/product.css">
+<section class="product-nav" id="modal">
+  <div class="pro-nav-head">
+    <div class="current">
+      <span class="name"></span>
+      <i class="iconfont icondown2"></i>
+    </div>
+  </div>
+  <div class="pro-nav-model" >
+    <ul class="pro-nav-list">
+    </ul>
+  </div>
+
+</section>
+
+<ul class="product-list">
+
+</ul>
+<script src="<%- serve.staticPath %>/js/util/tool.js" ></script>
+<script>
+  var productNav = {
+    "8": {
+      name: "8系列",
+      list: [{
+        name: 'BL826',
+        id: 'BL826',
+      }, {
+        name: 'BL809',
+        id: 'BL809',
+      }, {
+        name: 'BL801',
+        id: 'BL801',
+      }, {
+        name: 'BL800',
+        id: 'BL800',
+      }]
+    },
+    "7": {
+      name: "7系列",
+      list: [{
+        name: 'BL701黑',
+        id: 'BL701-b',
+      }, {
+        name: 'BL701白',
+        id: 'BL701-w',
+      }]
+    },
+    "6": {
+      name: "6系列",
+      list: [{
+        name: 'BL602',
+        id: 'BL602',
+      }, {
+        name: 'BL608',
+        id: 'BL608',
+      }, {
+        name: 'BL618',
+        id: 'BL618',
+      }]
+    },
+    "5": {
+      name: "5系列",
+      list: [{
+        name: 'BL517',
+        id: 'BL517',
+      }]
+    },
+    "1": {
+      name: "1系列",
+      list: [{
+        name: 'BL102',
+        id: 'BL102',
+      }, {
+        name: 'BL105',
+        id: 'BL105',
+      }]
+    },
+    "k": {
+      name: "k系列",
+      list: [{
+        name: 'K5',
+        id: 'K5',
+      }, {
+        name: 'K5A',
+        id: 'K5A',
+      }]
+    },
+    "c": {
+      name: "擦窗机系列",
+      list: [{
+        name: 'CC906',
+        id: 'CC906',
+      }, {
+        name: 'CC901',
+        id: 'CC901',
+      }]
+    },
+  };
+  var productNavText = [{
+    id:"8",
+    name:"8系列"
+  },{
+    id:"7",
+    name:"7系列"
+  },{
+    id:"6",
+    name:"6系列"
+  },{
+    id:"5",
+    name:"5系列"
+  },{
+    id:"1",
+    name:"1系列"
+  },{
+    id:"k",
+    name:"k系列"
+  },{
+    id:"c",
+    name:"擦窗机系列"
+  },];
+  $(function () {
+    var navHtml = ``;
+    for (let i=0;i<productNavText.length;i++){
+      navHtml+=`<li class="pro-nav-item" data-series="${productNavText[i].id}">${productNavText[i].name}</li>`;
+    }
+    $(".pro-nav-list").html(navHtml);
+    function renderPro(id = 8) {
+      var proHtml = ``;
+      var proData = productNav[id];
+      for (let i = 0; i < proData.list.length; i++) {
+        proHtml += `<li class="product-item">
+    <a href="/product/detail?id=${proData.list[i].id}" class="item-link">
+      <img src="<%- serve.staticPath %>/img/product/top/${proData.list[i].id}_1008.png" alt="宝乐机器人">
+      <strong>${proData.list[i].name}</strong>
+      <span class="more">了解更多</span>
+    </a>
+  </li>`;
+      };
+      $(".product-list").html(proHtml);
+      $(".current .name").text(proData.name);
+      $(".pro-nav-list").find(`.pro-nav-item[data-series="${id}"]`).hide().siblings().show();
+    }
+
+    renderPro(tool.url.get('id')||8);
+
+    $(".current,.pro-nav-model").on("click", function () {
+      modelFun()
+    });
+    function modelFun(){
+      var modal = document.getElementById('modal');
+      if($(".current").hasClass('active')){
+        $(".current").removeClass('active');
+        $("body").css("overflow", "auto")
+        $(".pro-nav-model").hide();
+      }else {
+        $(".current").addClass('active');
+
+        $("body").css("overflow", "hidden");
+        $(".pro-nav-model").show();
+        modal.addEventListener('touchmove',function(e){
+          e.preventDefault();
+        },false);
+      }
+
+    }
+    $(".pro-nav-list").on("click", ".pro-nav-item", function (e) {
+      e.stopPropagation();
+      var series = $(this).data('series');
+      renderPro(series);
+      modelFun()
+    });
+  });
+</script>
+<% include ./footer.ejs %>

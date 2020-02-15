@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords" content="宝乐产品，ODM扫地机，宝乐机器人，激光型智能扫地机，智能规划扫地机，扫地机器人，智能扫地机器人，家用扫地机，擦窗机器人。">
+  <meta name="description" content="经过十余年高速发展，已成为以清洁服务机器人为主营业务，产品已覆盖家用扫地机器人、商用扫地机器人、擦窗机器人等，产品出口至全球40多个国家，ODM全球出口销量稳居前列">
+  <title>产品布局-宝乐扫地机-广东宝乐机器人股份有限公司-宝乐官网</title>
+  <link rel="stylesheet" href="./static/css/product.css">
+</head>
+
+<body style="background-color: #f7f8fa;min-height: auto;height: auto">
+  @@include('header.html',{"product": "active"})
+  <div class="product-container">
+    <div class="select themeW">
+      <div class="product-nav">
+        <div class="main-wrap">
+          <a href="javascript:;" class="active" data-index="0">扫地机器人</a>
+          <a href="javascript:;" data-index="1">擦窗机器人</a>
+        </div>
+      </div>
+      <div class="product-tab">
+        <div class="main-wrap bl-clearfix">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  @@include('footer.html')
+  <script src="./lib/jquery/jquery.min.js"></script>
+  <script src="/src/static/js/util/tool.js"></script>
+  <script src="/src/static/js/common.js"></script>
+  <script src="/src/static/js/product.js"></script>
+  <script>
+    window.onload = function () {
+      $(".product-container .product-tab .main-wrap").html($.fn.productNav());
+      if (tool.url.get("product") === "1") {
+        $(".product-container .product-nav a").removeClass("active").eq(1).addClass("active");
+        $(".product-container .product-tab .product-item").removeClass("active").eq(1).addClass("active");
+      }
+    };
+    $(".product-container").css({
+      "min-height": $(window).height() - 74 - 272 - 86
+    })
+  </script>
+</body>
+
+</html>

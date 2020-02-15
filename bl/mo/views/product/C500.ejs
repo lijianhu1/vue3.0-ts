@@ -1,0 +1,34 @@
+<% include ../header.ejs %>
+<script src="<%- serve.staticPath %>/js/jquery.min.js?<%- serve.stc %>" ></script>
+<script src="<%- serve.staticPath %>/js/jquery.lazyload.min.js"></script>
+
+<!-- C510 -->
+<div class="banner">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-1.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-2.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-3.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-4.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-5.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-6.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-7.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-8.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-9.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-10.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-11.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-12.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-13.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-14.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-15.jpg">
+    <img data-original="<%- serve.staticPath %>/img/C500/C500-2-16.jpg">
+</div>
+
+<script>
+    $(function() {
+        $('img').lazyload({
+            placeholder : "<%- serve.staticPath %>/img/jiazaizhong.png",
+            effect: "fadeIn",
+            threshold: 180
+        });
+    });
+</script>
+<% include ../footer.ejs %>

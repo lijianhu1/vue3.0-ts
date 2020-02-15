@@ -1,0 +1,180 @@
+<% include ./header.ejs %>
+<link rel="stylesheet" href="<%- serve.staticPath %>/css/about_en.css">
+   <section class="img-text">
+       <h2 class="title">Continuous Technological Innovation</h2>
+       <span class="bl-text-sign"></span>
+      <p class="desc">BONA has a domestic leading technology R&D team, accumulatively applied for a total of more than 300 domestic and foreign patents,and has now obtained more than 140 authorized patents which spread all over the world,including the United States,the European Union,China Mainland and Taiwan.
+        (*As of November 2019,relevant data statistics came from BONA intellectual property patent Office)
+      </p>
+      <div class="img-wrap">
+         <img src="<%- serve.staticPath %>/img/about-1.png" alt="">
+      </div>
+   </section>
+<section class="img-text">
+  <h2 class="title">Obtained Multiple Global Certification</h2>
+  <span class="bl-text-sign"></span>
+  <p class="desc">Through years of efforts, the company has passed the ISO9001 international quality system certification, ISO14000 environmental management system certification, ISO45001 occupational health and safety management system certification, and intellectual property management system certification. Meanwhile, it has passed the BSCI (business social standard) factory in Europe and America with high scores, and obtained CCC, CB, GS, UL & CUL, CE, RoHS, RECAH, PSE and other domestic and foreign related certification and resources.</p>
+  <div class="img-wrap border">
+    <img src="<%- serve.staticPath %>/img/about-2.png" alt="">
+  </div>
+</section>
+<section class="img-text">
+  <h2 class="title">The Leader Of Intelligent Life Style</h2>
+  <span class="bl-text-sign"></span>
+  <p class="desc">Over the past 16 years, BONA has always been adhering to the service of concept “exceeding the customer’s expectation”, devoted itself to develop more professional cleaning robots, and make every effort to create more value for customers and users.</p>
+  <div class="img-wrap">
+    <img src="<%- serve.staticPath %>/img/about-3.png" alt="">
+  </div>
+</section>
+<section class="map">
+  <h2 class="title">Global Business Expansion</h2>
+  <p class="desc">After more than ten years of development, BONA is majoring in cleaning service robots,including household robot cleaners, commercial robot vacuum cleaner, window robot cleaner, etc., and its products have been exported to more than 40 countries in the world, leading the sales among all ODM manufactures.</p>
+  <ul class="msg">
+    <li>
+      <span>15</span>
+      <p>Years</p>
+    </li>
+    <li>
+      <span>45+</span>
+      <p>Countries And Regions</p>
+    </li>
+    <li class="bl-pl18">
+      <span>60+</span>
+      <p>Cooperative Brand</p>
+    </li>
+    <li >
+      <span>10 Millions+</span>
+      <p>Of users trust</p>
+    </li>
+  </ul>
+</section>
+<section class="history-stage">
+  <h2 class="title">History</h2>
+  <div class="history-main">
+    <ul class="year-axis">
+    </ul>
+    <div class="stage-con">
+      <div>
+        <div class="stage-img">
+        </div>
+        <div class="stage-text">
+          <strong class="stage-year">2019</strong>
+          <ul class="stage-desc">
+          </ul>
+        </div>
+      </div>
+
+      <div class="next">
+        <div class="arrow">
+          <img src="<%- serve.staticPath %>/img/about-5.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+  var historyStage = {
+    "2004": [{
+      "text": "2004,Bona entered into the robot vacuum cleaner industry."
+    },
+
+    ],
+    "2008": [{
+      "text": "Bona started to provide the whole chain of ODM service from product design to sampling and production for many famous brands at home and abroad"
+    }, {
+      "text": "Bona developed the first generation of robot vacuum cleaner."
+    }],
+    "2009": [{
+      "text": "Bona started to export robots to the oversea markets."
+    }],
+    "2012": [{
+      "text": "Bona launched the three-in-one robot vacuum cleaner (sweeping-vauuming-mopping)."
+    },
+
+    ],
+    /*"2013": [{
+      "text": "Bona launched its own brand Luo fu er for domestic market, with domestic e-commerce as it is main sales channel ."
+    }],
+    "2015": [{
+      "text": "Bona launched its own brand COAYU for domestic market, and has entered into the main domestic e-commerce channels such as T mall, JD.COM, Vip.com, Beidian.com, etc. At the same time, it keeps on developing offline sales channel including Suning, Wal-mart and Aeon, which has more than 400 stores."
+    }],*/
+    "2016": [{
+      "text": "Bona launched the robot vacuum cleaner with Gyro Mapping Technology."
+    },
+      {
+        "text": "Bona obtained the National High-Tech Enterprise Qualification."
+      }, {
+        "text": "Bona developed the first generation of window robot cleaner."
+      }
+    ],
+    "2017": [{
+      "text": "Bona launched the APP platform."
+    },
+      {
+        "text": "Bona launched the Guangzhou branch factory, and total capacity has been expanded to 3 millions units per year."
+      }
+    ],
+    "2018": [{
+      "text": "Bona launched the robot vacuum cleaner with Visual Mapping technology."
+    },
+      {
+        "text": "The FLEX ™ motor, which was specially designed and developed for robot vacuum cleaner,  was put into production."
+      },
+      {
+        "text": "Bona launched the robot vacuum cleaner with laser mapping technology."
+      },
+      {
+        "text": "Bona is building an industrial park with 200,000 square meters, with target anual capacity of 10million units."
+      }
+    ],
+    "2019": [{
+      "text": "Bona released the first robot vacuum cleaner with laser + AI recognition at the Consumer Electronics Show(CES) ."
+    }]
+  };
+  $(function () {
+    let axisHtml = ``;
+    var yearLen = [];
+    for (let key in historyStage) {
+      yearLen.push(key);
+    }
+    yearLen.sort((a,b)=>b-a);
+    yearLen.forEach(function (year,i) {
+      axisHtml+=`<li class="${i===0?'active':''}">${year}</li>`;
+    });
+    $(".history-stage .year-axis").html(axisHtml);
+    activeYear()
+    function activeYear() {
+      var year = $(".year-axis").find(".active").text();
+      $(".stage-text .stage-year").text(year);
+      var text = historyStage[year];
+
+      var desc = ``;
+      text.forEach(function (item,i) {
+        desc+=`<li class="${i===0?'bl-color-_333':''}">${item.text}</li>`
+      });
+      $(".stage-text .stage-desc").html(desc);
+      var imgHtml = `<img src="<%- serve.staticPath %>/img/history/${year}_0.jpg" alt="">`
+      $(".stage-img").html(imgHtml);
+    }
+    $(".stage-text .stage-desc").on("click","li",function () {
+      $(this).addClass("bl-color-_333").siblings().removeClass("bl-color-_333");
+      var index = $(this).index();
+      var year = $(".year-axis").find(".active").text();
+      var imgHtml = `<img src="<%- serve.staticPath %>/img/history/${year}_${index}.jpg" alt="">`
+      $(".stage-img").html(imgHtml);
+    });
+    $(".year-axis").on("click","li",function () {
+      $(this).addClass("active").siblings().removeClass("active");
+      activeYear();
+    });
+    $(".stage-con .arrow").on("click",function () {
+      var index = $(".year-axis").find(".active").index();
+      index+=1;
+      if (index>=yearLen.length) index=0;
+      $(".year-axis").children().eq(index).addClass("active").siblings().removeClass("active")
+      activeYear();
+    });
+
+  });
+</script>
+<% include ./footer.ejs %>

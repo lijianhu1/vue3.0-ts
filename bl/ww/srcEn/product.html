@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords"
+    content="BONA Products-Robot vacuum cleaner-ODM Robot vacuum cleaner--robot vacuum cleaner-Intelligent scheduling robot cleaner-Automatic Intelligent robot cleaner-Panoramic robot cleaner-window cleaning robots">
+  <meta name="description"
+    content="After more than a decade of rapid development, BONA has come to focus on cleaning service robots including robot vacuum cleaner, commercial robot vacuum cleaner, robot window cleaner, etc., and export to 40+ countries worldwide, leading sales among all ODM manufacturers.">
+  <title>Product distribution-Robot vacuum cleaner-Guangdong BONA Robot Co., Ltd.-BONA Robot Official Website</title>
+  <link rel="stylesheet" href="./static/css/product.css">
+</head>
+
+<body style="background-color: #f7f8fa;min-height: auto;height: auto">
+  @@include('header.html',{"product": "active"})
+  <div class="product-container">
+    <div class="select themeW">
+      <div class="product-nav">
+        <div class="main-wrap">
+          <a href="javascript:;" class="active" data-index="0">Robot Vacuum Cleaner</a>
+          <a href="javascript:;" data-index="1">Window Cleaning Robot</a>
+        </div>
+      </div>
+      <div class="product-tab">
+        <div class="main-wrap bl-clearfix">
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  @@include('footer.html')
+  <script src="./lib/jquery/jquery.min.js"></script>
+  <script src="/srcEn/static/js/util/tool.js"></script>
+  <script src="/srcEn/static/js/common.js"></script>
+  <script src="/srcEn/static/js/product.js"></script>
+  <script>
+    window.onload = function () {
+      $(".product-container .product-tab .main-wrap").html($.fn.productNav());
+      if (tool.url.get("product") === "1") {
+        $(".product-container .product-nav a").removeClass("active").eq(1).addClass("active");
+        $(".product-container .product-tab .product-item").removeClass("active").eq(1).addClass("active");
+      }
+      $(".product-container").css({
+        "min-height": $(window).height() - 74 - 272 - 86
+      })
+    }
+  </script>
+</body>
+
+</html>

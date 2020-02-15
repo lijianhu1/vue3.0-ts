@@ -1,0 +1,1 @@
+var serviceUrl = "http://robotbona-dev.softbona.com"

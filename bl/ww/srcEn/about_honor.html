@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords" content="BONA Robot-BONA Company Profile-BONA Brand-BONA News">
+  <meta name="description"
+    content="As a national high-tech enterprise in China, BONA has won many certification and product design awards at home and abroad">
+  <title>Enterprise Honor -BONA Robot-Guangdong BONA Robot Co., Ltd Official Website</title>
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+
+<body>
+  @@include('header.html',{"about": "active","subActive":"about_honor"})
+  @@include('indexSubNav.html',{"honor": "active"})
+  <div id="banner" class="banner-about-honor">
+    <div class="main-wrap">
+      <div>
+        <p class="banner-title">Honor</p>
+        <p class="desc">Founded in 2004, headquatered in Guangzhou, China, & based on an area of 50,000㎡, Guangdong Bona Robot Corporation Limited is
+          a national high-tech enterprise with integrited R&D, manufacture & sales.</p>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="honor">
+      <div class="main-wrap">
+        <!-- <h1 class=" bl-fontsize40"></h1> -->
+        <ul class="honor-list">
+          <li class="honor-item active">
+            <span class="year-title">18</span>
+            <div class="honor-item-con" data-year="2018">
+              <div>
+                <strong>2018</strong>
+                <p> <span class="honor-aItem bl-color-_333">Window robot cleaner W902 was selected as “The Model of the Design in Modern Chinese
+                    Design Exhibition</span></p>
+                <p><span class="honor-aItem">Bona robot vacuum cleaner were selected and displayed in the largest Red Dot Museum of the world</span>
+                </p>
+                <p><span class="honor-aItem">Bona robot vacuum cleaner 580s obtained Gold Award for Contemporary Good Gesign （referred to as
+                    CGD）</span></p>
+              </div>
+              <img src="./static/images/about/honor/2018_0.jpg" alt="">
+            </div>
+          </li>
+          <li class="honor-item">
+            <span class="year-title">17</span>
+            <div class="honor-item-con" data-year="2017">
+              <div>
+                <strong>2017</strong>
+                <p> <span class="honor-aItem">Bona obtained Chinese Intellectual Property Management System Certification</span></p>
+              </div>
+              <img src="./static/images/about/honor/2017_0.jpg" alt="">
+            </div>
+          </li>
+          <li class="honor-item">
+            <span class="year-title">16</span>
+            <div class="honor-item-con" data-year="2016">
+              <div>
+                <strong>2016</strong>
+                <p>
+                  <span class="honor-aItem">
+                    Bona obtained the National High-Tech Enterprise Qualification. <br /> Bona obtained ISO9001 International Quality System
+                    Certification Bona obtained Chinese Intellectual Property
+                  </span>
+                </p>
+
+              </div>
+              <img src="./static/images/about/honor/2016_0.jpg" alt="">
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  @@include('footer.html')
+  <script type="text/javascript" src="/srcEn/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/srcEn/static/js/common.js"></script>
+  <script src="/srcEn/static/js/about.js"></script>
+  <script type='text/javascript'>
+    $(function () {
+      var honor = {
+        "2016": [{
+          "text": "<p>Bona obtained the National High-Tech Enterprise Qualification.</p><p>Bona obtained ISO9001 International Quality System Certification.</p>"
+        }],
+        "2017": [{
+          "text": "Bona obtained Chinese Intellectual Property Management System Certification."
+        }],
+        "2018": [{
+            "text": "Window Robot Cleaner W902 was selected as “The Model of the Design in Modern Chinese Design Exhibition”."
+          },
+          {
+            "text": "Bona robot vacuum cleaner were selected and displayed in the largest Red Dot Museum of the world."
+          }
+        ]
+      };
+      var timer;
+      var idx = 0;
+      $(".honor-aItem").on("mouseenter", function () {
+        clearInterval(timer);
+        var index = $(this).parent('p').index() - 1;
+        idx = index;
+        var year = $(this).parents(".honor-item-con").data('year');
+        $(this).parents(".honor-item-con").children("img").attr("src", "./static/images/about/honor/" + year + "_" + index + ".jpg");
+        $(this).addClass('bl-color-_333').parent().siblings().children('.honor-aItem').removeClass('bl-color-_333');
+      });
+      $('.honor-aItem').on('mouseleave', function () {
+        var len = $(this).parents(".honor-item-con").find("p").length;
+        var self = $(this)
+        if (len > 1) {
+          timer = setInterval(function () {
+            timeFun(self.parents(".honor-item-con"));
+          }, 3000);
+        }
+      });
+
+      $('.honor-item').click(function () {
+        clearInterval(timer);
+        idx = 0;
+        $(this).addClass('active').siblings().removeClass('active');
+        var year = $(this).find('.honor-item-con').data('year');
+        $(this).find('.honor-item-con img').attr('src', "./static/images/about/honor/" + year + "_" + "0.jpg");
+        $(this).find("p").eq(0).children(".honor-aItem").addClass('bl-color-_333').parent().siblings().children('.honor-aItem').removeClass(
+          'bl-color-_333');
+        var childLen = $(this).find(".honor-item-con p").length;
+        var self = $(this)
+        if (childLen > 1) {
+          timer = setInterval(function () {
+            timeFun(self.find('.honor-item-con'));
+          }, 3000);
+        }
+
+      });
+
+      function timeFun(el) {
+        var childLen = el.find('p').length;
+        var year = el.data('year');
+        idx++;
+        if (idx >= childLen) idx = 0;
+        el.find('img').attr('src', "./static/images/about/honor/" + year + "_" + idx + ".jpg");
+        el.find("p").eq(idx).children(".honor-aItem").addClass('bl-color-_333').parent()
+          .siblings().children('.honor-aItem').removeClass('bl-color-_333');
+      };
+      timer = setInterval(function () {
+        timeFun($(".honor-list .honor-item").eq(0).children(".honor-item-con"));
+      }, 3000);
+    })
+  </script>
+</body>
+
+</html>

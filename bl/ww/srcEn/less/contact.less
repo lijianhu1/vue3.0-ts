@@ -1,0 +1,540 @@
+@import "common/base_variable";
+@import "common/base";
+
+.banner-contact {
+  background: url("/srcEn/static/images/contact/banner.png");
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/srcEn/static/images/contact/banner.png',sizingMethod='scale');
+  .main-wrap {
+    color: #fff;
+    text-align: center;
+    padding-top: 168px;
+
+    .banner-title {
+      font-size: 48px;
+      margin-bottom: 42px;
+      line-height: 48px;
+    }
+
+    .desc {
+      font-size: 18px;
+      line-height: 30px;
+      width: 684px;
+      margin: 0 auto;
+    }
+  }
+}
+
+#banner.banner-recruit-social {
+  height: 550px;
+  background-image: url("/srcEn/static/images/contact/shehuizhaopin.png");
+  background-position: center center;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/srcEn/static/images/contact/shehuizhaopin.png',sizingMethod='scale');
+  .main-wrap {
+    padding-top: 160px;
+    text-align: center;
+    color: #fff;
+
+    .banner-title {
+      font-size: 48px;
+      margin: 40px;
+    }
+
+    .desc {
+      font-size: 18px;
+      line-height: 30px;
+      width: 852px;
+      margin: 0 auto;
+    }
+  }
+}
+
+#banner.banner-recruit-school {
+  height: 769px;
+  background-image: url("/srcEn/static/images/contact/banner-xz.png");
+  background-position: center center;
+  padding-top: 640px;
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/srcEn/static/images/contact/banner-xz.png',sizingMethod='scale');
+  background: none\9;
+  .banner-title {
+    font-size: 22px;
+    text-align: center;
+    color: #333;
+    position: relative;
+    &:after{
+      position: absolute;
+      content: "";
+      width: 2px;
+      height: 18px;
+      background-color: #EDBAC0;
+      top:60px;
+      left: 50%;
+    }
+  }
+}
+
+#banner.banner-contact-business {
+  height: 550px;
+  background-image: url("/srcEn/static/images/contact/shangwuhezuo.png");
+  background-position: center center;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/srcEn/static/images/contact/shangwuhezuo.png',sizingMethod='scale');
+  .main-wrap {
+    padding-top: 120px;
+    text-align: center;
+    color: #fff;
+
+    .banner-title {
+      font-size: 48px;
+      margin: 40px;
+    }
+
+    .desc {
+      font-size: 18px;
+      line-height: 30px;
+      width: 750px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.main {
+
+  /******联系我们*******/
+  &.contact-container {
+
+    .section {
+      padding: 120px 0;
+
+      &.join {
+        padding-top: 90px;
+
+        img {
+          //width: 594px;
+        }
+
+        .text {
+          margin-bottom: 58px;
+        }
+      }
+    }
+
+    .title {
+      font-size: 48px;
+      line-height: 48px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .text {
+      color: #999;
+      line-height: 30px;
+      font-size: 18px;
+      width: 694px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .recruit {
+      margin-top: 52px;
+    }
+
+    .recruit-item {
+      width: 594px;
+      height: 400px;
+      display: inline-block;
+      padding: 75px 50px;
+
+      &.social {
+        background: url("/srcEn/static/images/contact/recruit_social.png") no-repeat;
+        background-size: 100% 100%;
+      }
+
+      &.school {
+        background: url("/srcEn/static/images/contact/recruit_school.png") no-repeat;
+        background-size: 100% 100%;
+      }
+
+      h4 {
+        color: #fff;
+        font-size: 48px;
+      }
+
+      .msg {
+        color: #fff;
+        font-size: 34px;
+      }
+
+      .btn {
+        color: #fff;
+        font-size: 18px;
+        background-color: @g_redColor;
+        border-radius: 30px;
+        padding: 8px 60px;
+        margin-top: 40px;
+        display: inline-block;
+        font-weight: bold;
+      }
+    }
+
+  }
+
+  /******招聘*******/
+  .recruit-container {
+    padding: 100px 0 60px;
+    color: #272727;
+    text-align: center;
+
+    .title {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .recruit-msg {
+      overflow: hidden;
+      margin-top: 48px;
+      margin-bottom: 120px;
+
+      ul {
+        width: 50%;
+        border-right: 2px solid #E3E3E3;
+        padding-left: 139px;
+
+        &:last-child {
+          border-right: none;
+        }
+
+        li {
+          font-size: 18px;
+          line-height: 27px;
+          color: #999;
+          text-align: left;
+          position: relative;
+          margin: 15px 0;
+
+          &:before {
+            width: 6px;
+            height: 6px;
+            background-color: @g_redColor;
+            position: absolute;
+            content: "";
+            left: -15px;
+            top: 10px;
+          }
+        }
+      }
+    }
+
+    .text-msg {
+      width: 790px;
+      line-height: 30px;
+      margin: 10px auto 30px;
+      text-align: left;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .position {
+      text-align: left;
+      margin-top: 40px;
+
+      .position-header,
+      .position-item {
+        border-bottom: 1px solid #D8D8D8;
+        padding: 10px 0;
+
+        >span {
+          display: inline-block;
+
+          &.name {
+            width: 40%;
+          }
+
+          &.column20 {
+            width: 20%;
+          }
+
+          &.time {
+            width: 18%;
+            text-align: right;
+          }
+        }
+      }
+
+      .position-header {
+        font-size: 22px;
+        line-height: 22px;
+        color: #525252;
+        font-weight: bold;
+      }
+
+      .position-list {
+        font-size: 18px;
+        color: #6C6C6C;
+
+        .position-item {
+          .name {
+            &:before {
+              content: " ";
+              width: 6px;
+              height: 6px;
+              background-color: @g_redColor;
+              display: inline-block;
+              margin-right: 15px;
+              margin-bottom: 4px;
+            }
+          }
+        }
+      }
+    }
+
+    .delivery {
+      text-align: left;
+      font-size: 20px;
+      margin-top: 10px;
+
+      a {
+        color: @g_redColor;
+      }
+    }
+
+    .footer-img {
+      margin-top: 125px;
+
+      .ban {
+        margin-bottom: 60px;
+      }
+    }
+  }
+
+  /*******商务合作******/
+  .business-container {
+    padding: 120px 0;
+
+    .title {
+      font-size: 40px;
+      color: #3A3939;
+      line-height: 55px;
+      font-weight: bold;
+    }
+
+    .text-msg {
+      font-size: 34px;
+      color: #7E7E7E;
+      margin-top: 40px;
+    }
+
+    .address-list {
+      overflow: hidden;
+      margin-bottom: 90px;
+
+      li {
+        float: left;
+        font-size: 16px;
+        line-height: 22px;
+        margin-right: 20px;
+
+        h5 {
+          font-size: 30px;
+          line-height: 42px;
+          margin-bottom: 15px;
+        }
+
+        >div {
+          overflow: hidden;
+          margin: 5px 0;
+          color: #999999;
+        }
+
+        span {
+          float: left;
+          display: block;
+          width: 163px;
+        }
+
+        p {
+          float: left;
+          //width: 270px;
+          //width: 345px;
+        }
+      }
+    }
+
+    .map-wrap {}
+  }
+
+
+  /*****成为体验官*****/
+  .experience-container {
+    .product {
+      overflow: hidden;
+      padding-top: 83px;
+      background-image: url("/srcEn/static/images/contact/quanqiutiyanguan.png");
+      background-position: center center;
+      height: 685px;
+      background-size: cover;
+      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/srcEn/static/images/contact/quanqiutiyanguan.png',sizingMethod='scale');
+      .product-text {
+        float: left;
+
+        .text-en {
+          font-size: 100px;
+          line-height: 100px;
+          color: @g_redColor;
+          font-weight: bold;
+        }
+
+        .text-title {
+          font-size: 72px;
+          margin: 30px 0;
+          color: #fff;
+        }
+
+        .text-msg {
+          font-size: 24px;
+          line-height: 26px;
+          margin: 10px 0;
+        }
+      }
+
+      .product-img {
+        float: right;
+        width: 704px;
+        height: 385px;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    .become {
+      background-color: #fff;
+      text-align: center;
+      padding-top: 145px;
+      padding-bottom: 86px;
+
+      .main-wrap {
+        position: relative;
+        padding-bottom: 30px;
+
+        &:before {
+          content: "";
+          width: 74px;
+          height: 165px;
+          background-color: @g_redColor;
+          position: absolute;
+          left: 50%;
+          top: -210px;
+          margin-left: -37px;
+        }
+
+        &:after {
+          content: "";
+          width: 1px;
+          height: 835px;
+          background-color: @g_redColor;
+          position: absolute;
+          bottom: -30px;
+          left: 50%;
+        }
+      }
+
+      .title {
+        font-size: 54px;
+        line-height: 54px;
+        margin-bottom: 100px;
+        color: #333;
+        font-weight: bold;
+        padding-top: 18px;
+      }
+
+      .stage {
+        p {
+          margin: 30px 0;
+          font-size: 22px;
+          line-height: 30px;
+          position: relative;
+
+          &:after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 6px 6.5px 0 6.5px;
+            border-color: @g_redColor transparent transparent transparent;
+            position: absolute;
+            left: 50%;
+            margin-left: -6px;
+            top: -15px;
+          }
+        }
+      }
+
+      .tips {
+        overflow: hidden;
+        text-align: left;
+        margin-top: 90px;
+        color: #666;
+        >div {
+          width: 520px;
+        }
+
+        .tips-title {
+          display: inline-block;
+          background-color: @g_redColor;
+          padding: 4px 10px;
+          font-size: 24px;
+          margin-bottom: 20px;
+          font-weight: 500;
+          color: #fff;
+          line-height: 28px;
+        }
+
+        p {
+          font-size: 16px;
+          line-height: 30px;
+        }
+      }
+    }
+
+    .apply {
+      padding: 80px 0;
+      background-color: #f6f6f6;
+      color: #333;
+
+      .apply-wrap {
+        width: 930px;
+        margin: 0 auto;
+        text-align: center;
+
+        .title {
+          font-size: 54px;
+          margin-bottom: 30px;
+          font-weight: bold;
+        }
+
+        .text {
+          font-size: 22px;
+          line-height: 36px;
+          text-align: center;
+        }
+
+        .download {
+          display: inline-block;
+          color: #fff;
+          padding: 5px 30px;
+          background-color: @g_redColor;
+          margin: 80px 0 30px;
+          font-size: 18px;
+        }
+
+        .tips {
+          font-size: 16px;
+          line-height: 32px;
+          color: #666;
+        }
+      }
+    }
+  }
+}
